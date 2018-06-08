@@ -3,6 +3,20 @@ import Label = Laya.Label;
 import Handler = Laya.Handler;
 import Loader = Laya.Loader;
 import WebGL = Laya.WebGL;
+import Realtime = AV.Realtime;
+
+
+AV.init({
+	appId: 'VQqCfmqxIELfPNWdYC2IeNae-gzGzoHsz',
+	appKey: '7EgGhjf2UkrO7aulfR6U8pQi',
+});
+new AV.Query('Championship').first().then(championship => console.log(championship.toJSON())).catch(error => console.error(error));
+
+const realtime = new Realtime({
+	appId: 'VQqCfmqxIELfPNWdYC2IeNae-gzGzoHsz',
+	appKey: '7EgGhjf2UkrO7aulfR6U8pQi',
+});
+realtime.createIMClient('test').then(client => console.log(client.id)).catch(error => console.error(error));
 
 class TestUI extends ui.test.TestPageUI {
 
